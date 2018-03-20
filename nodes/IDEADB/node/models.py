@@ -164,6 +164,9 @@ class Species(Model):
             self.inchikey_negative = inchi2inchikey(self.inchi_negative)
             self.inchikey_positive = inchi2inchikey(self.inchi_positive)
 
+    def inchi(self):
+        return self.inchi_neutral
+
     class Meta:
         db_table = u'species'
         verbose_name_plural = u'Species'

@@ -205,31 +205,39 @@ def setupResults(sql, limit=1000, es_id = None):
                     if energyscan.product_charge is models.Energyscan.NEUTRAL:
                         molecule.ioncharge = 0
                         molecule.inchikey = product.inchikey_neutral
+                        molecule.inchi = product.inchi_neutral
                     elif energyscan.product_charge is models.Energyscan.ANIONIC:
                         molecule.ioncharge = -1
                         molecule.inchikey = product.inchikey_negative
+                        molecule.inchi = product.inchi_negative
                     elif energyscan.product_charge is models.Energyscan.CATIONIC:
                         molecule.ioncharge = 1
                         molecule.inchikey = product.inchikey_positive
+                        molecule.inchi = product.inchi_positive
                 # reactant, neutral
                 else:
                     molecule.ioncharge = 0
                     molecule.inchikey = product.inchikey_neutral
+                    molecule.inchi = product.inchi_neutral
             for atom in atoms_internal:
                 if product.id is atom.id:
                     if energyscan.product_charge is models.Energyscan.NEUTRAL:
                         atom.ioncharge = 0
                         atom.inchikey = product.inchikey_neutral
+                        atom.inchi = product.inchi_neutral
                     elif energyscan.product_charge is models.Energyscan.ANIONIC:
                         atom.ioncharge = -1
                         atom.inchikey = product.inchikey_negative
+                        atom.inchi = product.inchi_negative
                     elif energyscan.product_charge is models.Energyscan.CATIONIC:
                         atom.ioncharge = 1
                         atom.inchikey = product.inchikey_positive
+                        atom.inchi = product.inchi_positive
                 # reactant, neutral
                 else:
                     atom.ioncharge = 0
                     atom.inchikey = product.inchikey_neutral
+                    atom.inchi = product.inchi_neutral
 
         #calculate exact / nominal masses
         for atom in atoms_internal:
