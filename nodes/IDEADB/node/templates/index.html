@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://ideadb.uibk.ac.at/static/files/css/style.css" />
+    <title>IDEADB </title>
+<script type="text/javascript">
+document.getElementById('go').onclick = function(){
+url1="sync?LANG=VSS2&REQUEST=doQuery&FORMAT=XSAMS&QUERY=";
+url2 = document.getElementById('query').value;
+document.location.href=url1+url2;
+}
+</script> 
+</head>
+
+<body>
+    <div id="Header">IDEADB Query</div>
+    <div id="Menu">
+        
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/view/">List of available Data</a></li>
+            <li><a href="/compare">Compare two scans</a></li>
+            <li><a href="/admin/">Administration</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+        
+    </div>
+
+    <div id="Content">
+        
+    <h2>Welcome to IDEADB</h2>
+    <div class="general" id="info">This is a <a href="http://vamdc.eu">VAMDC</a>-Node that serves data about dissociative electron attachment to molecules.<br />
+     <br />
+     You might want to run a query:<br /><br />
+     <form action="tap/sync?">
+      <input type="hidden" value="VSS2" name="LANG" />
+      <input type="hidden" value="doQuery" name="REQUEST" />
+      <input type="hidden" value="XSAMS" name="FORMAT" />
+      <input type="text" name="query" value="Select * where AtomSymbol='O'" size="100"/><br /><br />
+      <input type="submit" value="Run Query and download XSAMS-File" />
+     </form>
+    </div>
+    <div class="general" id="info">
+     Data in this repository might be subject to copyrights by the authors, but are free to use.
+    </div>
+    </div>
+</body>
+</html>

@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 
 #we need this to use djangos default views
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, TemplateView
 from node.views import *
 from node.models import *
 # Uncomment the next two lines to enable the admin:
@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^contact/$', contact),
     url(r'^export/(\d+)/$', export_ascii),
     url(r'^species/$',ListView.as_view(model=Species)),
+    url(r'^$', TemplateView.as_view(template_name='index.html'), name="home"),
 ]
 
 handler500 = 'vamdctap.views.tapServerError'
