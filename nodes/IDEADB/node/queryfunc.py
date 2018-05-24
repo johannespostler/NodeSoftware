@@ -179,8 +179,10 @@ def setupResults(sql, limit=1000, es_id = None):
         energyscan.Reactants = models.Species.objects.filter(id__exact=energyscan.origin_species.id)
 
         # check if we have two process codes. if so, we should spit them out as a list:
-        if energyscan.process_code_2 is not None:
+        if energyscan.process_code_2 != '':
             energyscan.process_codes = [energyscan.process_code, energyscan.process_code_2]
+        else:
+            energyscan.process_codes = [energyscan.process_code]
 
         # adjust IAEA process codes
         if 'elat' in energyscan.process_codes:
